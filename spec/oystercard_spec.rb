@@ -1,12 +1,18 @@
 require 'oystercard'
 
 describe Oystercard do
+  subject { Oystercard.new }
   it 'shows balance' do
     expect(subject.balance).to eq(0)
   end
 
   it '#top up' do
-    card = Oystercard.new
-    expect{ card.top_up 1 }.to change{ card.balance }.by 1
+    expect{ subject.top_up 1 }.to change{ subject.balance }.by 1
   end
+
+   it 'raises error when maximum balanced reached' do
+     maximum = Oystercard::MAXIMUM_BALANCE
+     subject.top_up maximum
+     expect { subject.top_up 1 }.to raise_error("Maximum balance of #{maximum}")
+   end
 end
