@@ -1,0 +1,6 @@
+NameError:
+  uninitialized constant Oystercard
+  # ./spec/oystercard_spec.rb:1:in `<top (required)>'
+Line 1 in oystercard_spec file.
+
+Solution: Create a new Oystercard class.
