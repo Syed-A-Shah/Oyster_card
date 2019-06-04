@@ -1,5 +1,5 @@
 class Oystercard
-  attr_reader :balance, :BAL_LIMIT, :in_use, :MIN_BAL
+  attr_reader :balance, :in_use, :BAL_LIMIT, :MIN_BAL
   BAL_LIMIT = 90
   MIN_BAL = 1
 
@@ -22,11 +22,13 @@ class Oystercard
   end
 
   def touch_in
+    fail "Oystercard balance insufficient" if @balance < MIN_BAL
     @in_use = true
   end
 
   def touch_out
     @in_use = false
   end
+
 
 end

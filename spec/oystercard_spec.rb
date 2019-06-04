@@ -31,12 +31,16 @@ describe Oystercard do
     end
 
     it 'allows customer to touch in' do
+      subject.top_up(1)
       subject.touch_in
-      expect(subject).to be_in_journey
+      expect(subject.in_journey?).to eq true
     end
 
     it 'allows customer to touch out' do
       subject.touch_out
-      expect(subject).not_to be_in_journey
+      expect(subject.in_journey?).to eq false
+    end
+    it 'raises error when balance in insufficient' do
+      expect { subject.touch_in }.to raise_error("Oystercard balance insufficient")
     end
 end
