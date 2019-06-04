@@ -7,7 +7,7 @@ describe Oystercard do
     expect(subject.balance).to eq(0)
   end
 
-  it '#top up' do
+  it '#top_up' do
     expect{ subject.top_up 1 }.to change{ subject.balance }.by 1
   end
 
@@ -16,9 +16,27 @@ describe Oystercard do
     subject.top_up maximum
    expect { subject.top_up 1 }.to raise_error("Maximum balance of #{maximum}")
   end
-  it 'deducts money from my card' do
-    subject.top_up(80)
-    subject.deduct(20)
-    expect(subject.balance).to eq(60)
+
+  describe '#deduct' do
+    it 'takes an argument and deducts it from the balance' do
+      subject.top_up(45)
+#     subject.deduct(5)
+#     expect(subject.balance).to eq(40)
+      expect(subject.deduct(5)).to eq(40)
+    end
   end
+
+    it 'responds to if the customer is in journey' do
+      expect(subject.in_journey?).to be_falsey
+    end
+
+    it 'allows customer to touch in' do
+      subject.touch_in
+      expect(subject).to be_in_journey
+    end
+
+    it 'allows customer to touch out' do
+      subject.touch_out
+      expect(subject).not_to be_in_journey
+    end
 end

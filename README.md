@@ -9,7 +9,7 @@ Tested software is easier to change because you can tell when it's broken just b
 I can build with objects
 Most code in the world is structured in small pieces called objects. This is done because it is easier to change than having everything in one place.
 
-'''
+```
 In order to use public transport
 As a customer
 I want money on my card
@@ -57,4 +57,4 @@ I need a penalty charge deducted if I fail to touch in or out
 In order to be charged the correct amount
 As a customer
 I need to have the correct fare calculated
-'''
+```
