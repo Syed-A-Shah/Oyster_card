@@ -1,5 +1,5 @@
 class Oystercard
-  attr_reader :balance, :in_use, :BAL_LIMIT, :MIN_BAL, :entry_station, :exit_station
+  attr_reader :balance, :in_use, :BAL_LIMIT, :MIN_BAL, :entry_station, :exit_station, :journeys
   BAL_LIMIT = 90
   MIN_BAL = 1
   MIN_CHARGE = 5

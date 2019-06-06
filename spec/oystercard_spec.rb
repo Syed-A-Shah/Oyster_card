@@ -55,9 +55,10 @@ describe Oystercard do
     end
 
     it 'has an empty list of journeys by default' do
-      expect(subject.journey_history).to be_empty
+      expect(subject.journeys).to be_empty
+  #  NEED TO PASS THIS TEST
     end
-    
+
     it 'stores the entry station' do
       subject.top_up(5)
       subject.touch_in(station)
